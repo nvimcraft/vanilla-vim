@@ -1,5 +1,7 @@
 vim9script
 
+import '../autoload/utils.vim'
+
 # Window Navigation
 nnoremap <leader>h <C-w>h
 nnoremap <leader>j <C-w>j
@@ -38,9 +40,7 @@ inoremap <A-k> <Esc>:m .-2<CR>==gi
 vnoremap <A-j> :m '>+1<CR>gv=gv
 vnoremap <A-k> :m '<-2<CR>gv=gv
 
-import './autoload/utils.vim'
-
 # Utility toggles
-nnoremap <leader>nr :call utils.ToggleRelativeNumbers()<CR>
-nnoremap <leader>tp :call utils.TogglePaste()<CR>
-nnoremap <leader>fi :call utils.FileInfo()<CR>
+nnoremap <leader>nr <ScriptCmd>utils.ToggleRelativeNumbers()<CR>
+nnoremap <leader>tp <ScriptCmd>utils.TogglePaste()<CR>
+nnoremap <leader>fi <ScriptCmd>utils.FileInfo()<CR>

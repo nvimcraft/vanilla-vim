@@ -13,13 +13,13 @@ set hidden
 
 # Backup and swap files
 set backup
-set backupdir=$HOME/.vim/backup//
-set directory=$HOME/.vim/swap//
+set backupdir=$HOME/.vim/data/backup//
+set directory=$HOME/.vim/data/swap//
 set writebackup
 
 # Undo configuration
 set undofile
-set undodir=$HOME/.vim/undo//
+set undodir=$HOME/.vim/data/undo//
 
 # Search settings
 set ignorecase

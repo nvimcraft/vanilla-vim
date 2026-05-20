@@ -27,7 +27,7 @@ set sidescrolloff=15
 set fillchars=vert:\|,fold:\
 
 # Status line
-set laststatus=2
+set laststatus=3
 set statusline=%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %p%%
 
 # Folding

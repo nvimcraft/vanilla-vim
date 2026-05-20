@@ -7,14 +7,14 @@ endif
 g:loaded_vimrc = true
 
 # Ensure required directories exist
-for dir in [$HOME .. '/.vim/backup', $HOME .. '/.vim/swap', $HOME .. '/.vim/undo']
+for dir in [$HOME .. '/.vim/data/backup', $HOME .. '/.vim/data/swap', $HOME .. '/.vim/data/undo']
   if !isdirectory(dir)
     mkdir(dir, 'p')
   endif
 endfor
 
 # Core settings
-source $HOME/.vim/general.vim
+source $HOME/.vim/config/options.vim
 
 # Filetype detection and plugins
 # must be before options that depend on it
@@ -23,10 +23,10 @@ filetype plugin on
 filetype indent on
 
 # Vim options
-source $HOME/.vim/ui.vim
+source $HOME/.vim/config/appearance.vim
 
 # Editing behavior
-source $HOME/.vim/editing.vim
+source $HOME/.vim/config/editing.vim
 
 # Key mappings
-source $HOME/.vim/mapping.vim
+source $HOME/.vim/config/mappings.vim
