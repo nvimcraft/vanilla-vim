@@ -14,4 +14,12 @@ def Ensure(repo: string)
   endif
 
   execute 'set runtimepath+=' .. fnameescape(path)
+
+  var plugin_glob = path .. '/plugin/*.vim'
+  for plugin_script in glob(plugin_glob, true, true)
+    execute 'source ' .. fnameescape(plugin_script)
+  endfor
 enddef
+
+Ensure('junegunn/fzf')
+Ensure('junegunn/fzf.vim')
