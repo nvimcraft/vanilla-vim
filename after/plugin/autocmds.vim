@@ -4,7 +4,7 @@ vim9script
 augroup vimrc_autocmds
   autocmd!
 
-  # Highlight yanked text (pure VimScript version)
+  # Highlight yanked text
   autocmd TextYankPost * call HighlightYank()
 
   # Strip trailing whitespace on save

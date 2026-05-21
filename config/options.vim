@@ -43,5 +43,5 @@ if has('gui_running') || $TERM =~# 'xterm\|screen\|tmux'
   set mouse=a
 endif
 
-# Leader key (must be set early)
+# Leader key
 g:mapleader = ' '
