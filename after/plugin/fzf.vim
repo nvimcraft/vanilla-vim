@@ -1,20 +1,26 @@
 vim9script
 
-# Files
-nnoremap <leader>ff :Files<CR>
-nnoremap <leader>fh :History<CR>
-nnoremap <leader>fb :Buffers<CR>
-nnoremap <leader>fq :CList<CR> 
-nnoremap <leader>fH :Helptags<CR>
+# Toggle preview window
+g:fzf_vim = {
+  preview_window: ['hidden,right,70%', 'ctrl-/']
+}
 
-# Grep current string
-nnoremap <leader>fs :Rg <C-r><C-w><CR>
+# FZF floating window size (70% width/ 80% height)
+g:fzf_layout = { 'window': { 'width': 0.7, 'height': 0.8 } }
 
-# Grep input string
-nnoremap <leader>fg :Rg<Space>
-
-# Grep for current file name
-nnoremap <leader>fc :execute 'Rg ' .. expand('%:t:r')<CR>
-
-# Find files in your Vim config
-nnoremap <leader>fv :Files ~/.vim<CR>
+# Highlight group mappings for FZF UI elements
+g:fzf_colors = {
+    'fg':      ['fg', 'Normal'],
+    'bg':      ['bg', 'Normal'],
+    'hl':      ['fg', 'Comment'],
+    'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+    'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+    'hl+':     ['fg', 'Statement'],
+    'info':    ['fg', 'PreProc'],
+    'border':  ['fg', 'Ignore'],
+    'prompt':  ['fg', 'Conditional'],
+    'pointer': ['fg', 'Exception'],
+    'marker':  ['fg', 'Keyword'],
+    'spinner': ['fg', 'Label'],
+    'header':  ['fg', 'Comment']
+}

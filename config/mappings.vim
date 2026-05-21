@@ -44,3 +44,9 @@ vnoremap <A-k> :m '<-2<CR>gv=gv
 nnoremap <leader>nr <ScriptCmd>utils.ToggleRelativeNumbers()<CR>
 nnoremap <leader>tp <ScriptCmd>utils.TogglePaste()<CR>
 nnoremap <leader>fi <ScriptCmd>utils.FileInfo()<CR>
+
+# FZF mappings
+nnoremap <leader>ff <Cmd>Files<CR> 
+nnoremap <leader>fb <Cmd>Buffers<CR> 
+nnoremap <leader>fg <Cmd>Rg<CR> 
+nnoremap <leader>fH <Cmd>Helptags<CR> 
