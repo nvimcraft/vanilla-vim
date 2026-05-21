@@ -2,15 +2,6 @@ vim9script
 
 import '../autoload/utils.vim'
 
-# Resize splits
-nnoremap <leader>+ <C-w>+
-nnoremap <leader>- <C-w>-
-nnoremap <leader>> <C-w>>
-nnoremap <leader>< <C-w><
-
-# Equalize splits
-nnoremap <leader>= <C-w>=
-
 # Buffer Navigation
 nnoremap <leader>bn :bnext<CR>
 nnoremap <leader>bp :bprevious<CR>
