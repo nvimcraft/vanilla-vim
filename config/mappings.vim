@@ -2,12 +2,6 @@ vim9script
 
 import '../autoload/utils.vim'
 
-# Window Navigation
-nnoremap <leader>h <C-w>h
-nnoremap <leader>j <C-w>j
-nnoremap <leader>k <C-w>k
-nnoremap <leader>l <C-w>l
-
 # Resize splits
 nnoremap <leader>+ <C-w>+
 nnoremap <leader>- <C-w>-
