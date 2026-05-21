@@ -27,3 +27,13 @@ nnoremap <leader>ff <Cmd>Files<CR>
 nnoremap <leader>fb <Cmd>Buffers<CR> 
 nnoremap <leader>fg <Cmd>Rg<CR> 
 nnoremap <leader>fH <Cmd>Helptags<CR> 
+
+# Fugitive (git) mappings
+nnoremap <leader>gs :G<CR>
+nnoremap <leader>gb :G blame<CR>
+nnoremap <leader>gd :Gdiffsplit<CR>
+nnoremap <leader>gl :G log<CR>
+nnoremap <leader>gw :Gwrite<CR>
+nnoremap <leader>gu :Gread<CR>
+nnoremap <leader>gc :G commit<CR>
+nnoremap <leader>gp :G push<CR>
