@@ -2,12 +2,6 @@ vim9script
 
 import '../autoload/utils.vim'
 
-# Buffer Navigation
-nnoremap <leader>bn :bnext<CR>
-nnoremap <leader>bp :bprevious<CR>
-nnoremap <leader>bd :bdelete<CR>
-nnoremap <leader>bl :ls<CR>
-
 # Search
 nnoremap <leader>cs :nohlsearch<CR>
 
