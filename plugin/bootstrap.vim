@@ -23,6 +23,7 @@ enddef
 
 Ensure('junegunn/fzf')
 Ensure('junegunn/fzf.vim')
+Ensure('tpope/vim-commentary')
 Ensure('tpope/vim-surround')
 Ensure('tpope/vim-fugitive')
 Ensure('airblade/vim-gitgutter')
