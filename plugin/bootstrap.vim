@@ -23,3 +23,4 @@ enddef
 
 Ensure('junegunn/fzf')
 Ensure('junegunn/fzf.vim')
+Ensure('tpope/vim-surround')
