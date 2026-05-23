@@ -1,35 +1,33 @@
-vim9script
-
-# Clipboard (sync with macOS system clipboard)
+" Clipboard (sync with macOS system clipboard)
 set clipboard=unnamed
 
-# Terminal colors
+" Terminal colors
 set termguicolors
 set background=dark
 
-# Syntax highlighting
+" Syntax highlighting
 syntax on
-colorscheme habamax
+colorscheme retrobox
 
-# Command line completion
+" Command line completion
 set wildmenu
 set wildmode=longest:full,full
 set wildignorecase
 
-# Sign column
+" Sign column
 set signcolumn=yes
 
-# Cursor positioning
+" Cursor positioning
 set scrolloff=8
 set sidescrolloff=15
 
-# Split appearance
+" Split appearance
 set fillchars=vert:\|,fold:\
 
-# Status line
+" Status line
 set laststatus=2
 set statusline=%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %p%%
 
-# Folding
+" Folding
 set foldmethod=indent
 set foldlevel=99

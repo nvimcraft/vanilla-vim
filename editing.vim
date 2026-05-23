@@ -1,22 +1,20 @@
-vim9script
-
-# Indentation
+" Indentation
 set tabstop=4
 set shiftwidth=4
 set expandtab
 set autoindent
 set softtabstop=4
 
-# Line wrapping
+" Line wrapping
 set wrap
 set linebreak
 set textwidth=0
 
-# Backspace behavior
+" Backspace behavior
 set backspace=indent,eol,start
 
-# Completion
+" Completion
 set completeopt=menuone,noinsert,noselect
 
-# Format options
+" Format options
 set formatoptions=tcqro
