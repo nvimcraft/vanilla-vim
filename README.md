@@ -1,33 +1,33 @@
-# Vanilla Vim
+# dotvim
 
-Minimal Vim 9 configuration for my work as an Adoption Specialist at Celigo.
+Minimal Vim configuration for my work as an Adoption Specialist at Celigo.
 
-This setup is intentionally minimal and optimized for quick inspection and
-editing of JSON and JavaScript files.
+> **NOTE:** The complete `vim9script` setup lives on the
+> `dev` branch. This branch `main` uses legacy VimScript for
+> compatibility with older Vim versions.
 
 ## Structure
 
 ```
 ~/.vim/
 ├── vimrc                          # Entry point; creates directories, sources modules
-├── general.vim                    # Core behavior: encoding, numbers, search, splits, mouse
-├── options.vim                    # UI/visual: clipboard, colors, status line, folding
+├── options.vim                    # Core behavior: encoding, numbers, search, splits, mouse
+├── appearance.vim                 # UI/visual: clipboard, colors, status line, folding
 ├── editing.vim                    # Indentation, wrapping, format options
-├── mapping.vim                    # Leader mappings, window/buffer/tab navigation
+├── mappings.vim                   # Leader mappings, window/buffer/tab navigation
 ├── .netrwhist                     # netrw history (auto-generated)
 ├── after/
 │   └── plugin/autocmds.vim        # Autocommands: yank highlight, whitespace strip, cursor restore
 ├── autoload/
 │   └── utils.vim                  # On-demand utility functions (toggles, file info)
 ├── ftplugin/                      # Per-filetype overrides (python, go, js/ts, etc.)
-├── backup/                        # Backup files (auto-created)
-├── swap/                          # Swap files (auto-created)
-└── undo/                          # Persistent undo (auto-created)
+└── data/
+    ├── backup/                    # Backup files (auto-created)
+    ├── swap/                      # Swap files (auto-created)
+    └── undo/                      # Persistent undo (auto-created)
 ```
 
 ## Key mappings
-
-Leader is `<Space>`.
 
 | Mapping             | Action                          |
 |---------------------|---------------------------------|
@@ -46,7 +46,7 @@ Leader is `<Space>`.
 | `<leader>nr`        | Toggle relative numbers         |
 | `<leader>tp`        | Toggle paste mode               |
 | `<leader>fi`        | Show file info                  |
-| `<leader>fmt`       | Format file (per-filetype)      |
+| `<leader>fm`        | Format file (per-filetype)      |
 | `Alt-j/k`           | Move line(s) up/down            |
 
 ## Formatting
@@ -60,10 +60,8 @@ Leader is `<Space>`.
 | JavaScript | `prettier --stdin-filepath` | `gg=G`   |
 | TypeScript | `prettier --stdin-filepath` | `gg=G`   |
 | JSON       | `python3 -m json.tool`      | `gg=G`   |
-| YAML       | —                           | `gg=G`   |
-| HTML       | —                           | `gg=G`   |
-| CSS        | —                           | `gg=G`   |
-| Markdown   | `gqap` (paragraph)          | —        |
+| Markdown   | `prettier --stdin-filepath` | `gg=G`   |
+| YAML       | `prettier --stdin-filepath` | `gg=G`   |
 | Vim        | —                           | `gg=G`   |
 
 ## Autocommands
