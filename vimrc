@@ -30,3 +30,6 @@ source $HOME/.vim/config/editing.vim
 
 # Key mappings
 source $HOME/.vim/config/mappings.vim
+
+# LSP configuration
+source $HOME/.vim/config/lsp.vim

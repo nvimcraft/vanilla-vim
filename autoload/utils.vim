@@ -38,3 +38,30 @@ export def FileInfo()
   echo 'Format: ' .. &fileformat
   echo 'Lines: ' .. line('$')
 enddef
+
+# LSP go-to-definition with tag fallback
+export def GotoDefinition()
+  if lsp#lsp#ServerRunning(&filetype)
+    LspGotoDefinition
+  else
+    execute 'tag ' .. expand('<cword>')
+  endif
+enddef
+
+# LSP hover with keywordprg fallback
+export def Hover()
+  if lsp#lsp#ServerRunning(&filetype)
+    LspHover
+  else
+    normal! K
+  endif
+enddef
+
+# Format LSP if available, otherwise native indent
+export def Format()
+  if lsp#lsp#ServerRunning(&filetype)
+    LspFormat
+  else
+    normal! gg=G
+  endif
+enddef
