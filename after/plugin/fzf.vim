@@ -2,7 +2,7 @@ vim9script
 
 # Toggle preview window
 g:fzf_vim = {
-  preview_window: ['hidden,right,70%', 'ctrl-/']
+  preview_window: ['hidden,right,70%', 'ctrl-p']
 }
 
 # FZF floating window size (70% width/ 80% height)
