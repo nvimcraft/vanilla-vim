@@ -27,8 +27,6 @@ nnoremap <leader>ff <Cmd>Files<CR>
 nnoremap <leader>fb <Cmd>Buffers<CR> 
 nnoremap <leader>fg <Cmd>Rg<CR> 
 nnoremap <leader>fH <Cmd>Helptags<CR> 
-
-# Fugitive (git) mappings
 nnoremap <leader>gs :G<CR>
 nnoremap <leader>gb :G blame<CR>
 nnoremap <leader>gd :Gdiffsplit<CR>
@@ -45,3 +43,17 @@ nmap <Leader>hs <Plug>(GitGutterStageHunk)
 nmap <Leader>hu <Plug>(GitGutterUndoHunk)
 nmap <Leader>hp <Plug>(GitGutterPreviewHunk)
 nmap <Leader>hS <Plug>(GitGutterStageAll)
+
+# LSP navigation
+nnoremap gd <ScriptCmd>utils.GotoDefinition()<CR>
+nnoremap gD <Cmd>LspGotoDeclaration<CR>
+nnoremap gi <Cmd>LspGotoImpl<CR>
+nnoremap gI <Cmd>LspPeekDefinition<CR>
+nnoremap K <ScriptCmd>utils.Hover()<CR>
+nnoremap gr <Cmd>LspShowReferences<CR>
+nnoremap grn <Cmd>LspRename<CR>
+nnoremap gca <Cmd>LspCodeAction<CR>
+nnoremap <leader>ds <Cmd>LspDiag show<CR>
+nnoremap [d <Cmd>LspDiag prev<CR>
+nnoremap ]d <Cmd>LspDiag next<CR>
+nnoremap <leader>fm <ScriptCmd>utils.Format()<CR>
