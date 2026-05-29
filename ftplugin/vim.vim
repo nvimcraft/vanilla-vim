@@ -1,8 +1,13 @@
-" Vim script filetype settings
-setlocal tabstop=2
-setlocal shiftwidth=2
+setlocal tabstop=4
+setlocal shiftwidth=4
+setlocal softtabstop=4
 setlocal expandtab
-setlocal softtabstop=2
 
-" Format with Vim indent
-nnoremap <buffer> <leader>fm gg=G<C-o>
+" Fold Vim files by marker {{{ }}}. Manual but predictable.
+setlocal foldmethod=marker
+
+" K opens :help for the word under the cursor.
+setlocal keywordprg=:help
+
+nnoremap <buffer> <silent> <leader>fm gg=G<C-o>
+

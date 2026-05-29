@@ -1,13 +1,20 @@
-" Markdown filetype settings
-setlocal tabstop=2
-setlocal shiftwidth=2
+setlocal tabstop=4
+setlocal shiftwidth=4
+setlocal softtabstop=4
 setlocal expandtab
-setlocal softtabstop=2
 setlocal textwidth=80
+setlocal linebreak
+setlocal wrap
 
-" Format with prettier if available, otherwise indent whole file
-if executable('prettier')
-  nnoremap <buffer> <leader>fm :silent execute '%!prettier --stdin-filepath ' . shellescape(expand('%'))<CR>
-else
-  nnoremap <buffer> <leader>fm gg=G<C-o>
-endif
+" Spell check on by default for prose.
+setlocal spell
+setlocal spelllang=en_us
+
+" Fold by section using built-in markdown syntax (no plugin needed).
+setlocal foldmethod=expr
+setlocal foldexpr=getline(v:lnum)=~'^#'?'>'.(len(matchstr(getline(v:lnum),'^#\\+'))):'='
+
+" Markdown hard-line-breaks are two trailing spaces. The trailing-whitespace
+" stripper in after/plugin/autocmds.vim excludes this filetype.
+
+nnoremap <buffer> <silent> <leader>fm gg=G<C-o>

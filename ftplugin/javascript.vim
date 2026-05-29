@@ -1,12 +1,9 @@
-" JavaScript filetype settings
+" 2-space indent (Prettier/Standard/Airbnb default).
 setlocal tabstop=2
 setlocal shiftwidth=2
-setlocal expandtab
 setlocal softtabstop=2
+setlocal expandtab
 
-" Format with prettier if available, otherwise Vim indent
-if executable('prettier')
-  nnoremap <buffer> <leader>fm :silent execute '%!prettier --stdin-filepath ' . shellescape(expand('%'))<CR>
-else
-  nnoremap <buffer> <leader>fm gg=G<C-o>
-endif
+" Format buffer: prettier via defensive pipe (won't clobber on parse error),
+" fall back to native indent if prettier is absent.
+nnoremap <buffer> <silent> <leader>fm :call utils#PrettierPipe()<CR>

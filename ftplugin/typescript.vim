@@ -1,12 +1,8 @@
-" TypeScript filetype settings
+" 2-space indent (Prettier default).
 setlocal tabstop=2
 setlocal shiftwidth=2
-setlocal expandtab
 setlocal softtabstop=2
+setlocal expandtab
 
-" Format with prettier if available, otherwise Vim indent
-if executable('prettier')
-  nnoremap <buffer> <leader>fm :silent execute '%!prettier --stdin-filepath ' . shellescape(expand('%'))<CR>
-else
-  nnoremap <buffer> <leader>fm gg=G<C-o>
-endif
+nnoremap <buffer> <silent> <leader>fm :call utils#PrettierPipe()<CR>
+

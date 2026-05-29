@@ -1,14 +1,14 @@
-" JSON filetype settings
+" 2-space indent (community norm; matches package.json, tsconfig, etc.)
 setlocal tabstop=2
 setlocal shiftwidth=2
-setlocal expandtab
 setlocal softtabstop=2
+setlocal expandtab
 
-" Format with python json.tool or jq if available, otherwise Vim indent
-if executable('python3')
-  nnoremap <buffer> <leader>fm :silent execute '%!python3 -m json.tool'<CR>
-elseif executable('jq')
-  nnoremap <buffer> <leader>fm :silent execute '%!jq .'<CR>
-else
-  nnoremap <buffer> <leader>fm gg=G<C-o>
-endif
+" Conceal nothing (default 'conceal' on JSON files hides quotes -- annoying).
+setlocal conceallevel=0
+
+" Format with jq if available, otherwise native indent. Deliberately NO
+" python3 fallback: invoking /usr/bin/python3 on a fresh macOS triggers the
+" Command Line Tools installer dialog under MDM, which is disruptive.
+nnoremap <buffer> <silent> <leader>fm :call utils#JqPipe()<CR>
+

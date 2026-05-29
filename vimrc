@@ -1,30 +1,37 @@
-" Prevent loading twice
+" ---------------------------------------------------------------------------
+" Order of operations matters in Vim. This file deliberately:
+"   1. Sets defensive options (modeline/secure) BEFORE anything else.
+"   2. Enables filetype detection in one canonical call.
+"   3. Sources modular config in dependency order:
+"        options -> appearance -> editing -> mappings
+" ---------------------------------------------------------------------------
+
+" Re-source guard.
 if exists('g:loaded_vimrc')
-  finish
+    finish
 endif
 let g:loaded_vimrc = 1
 
-" Ensure required directories exist
-for dir in [$HOME . '/.vim/data/backup', $HOME . '/.vim/data/swap', $HOME . '/.vim/data/undo']
-  if !isdirectory(dir)
-    call mkdir(dir, 'p')
-  endif
+set nomodeline           " disable inline 'vim:' directives from untrusted files
+set modelines=0          " belt-and-suspenders; even if 'modeline' flips back on
+set secure               " disallow :autocmd, shell, write commands from local rc
+
+" Bootstrap persistent-state directories ONLY if missing. Cheap, but avoids
+" running mkdir on every startup once they exist.
+for s:dir in [$HOME . '/.vim/data/backup', $HOME . '/.vim/data/swap', $HOME . '/.vim/data/undo']
+    if !isdirectory(s:dir)
+        call mkdir(s:dir, 'p', 0700)
+    endif
 endfor
+unlet s:dir
 
-" Core settings
-source $HOME/.vim/options.vim
+" Filetype detection + ftplugin + indent in one call. Must happen before any
+" 'syntax enable' in appearance.vim and before per-filetype autocmds load.
+filetype plugin indent on
 
-" Filetype detection and plugins
-" must be before options that depend on it
-filetype on
-filetype plugin on
-filetype indent on
+" Sourced in dependency order.
+source $HOME/.vim/config/options.vim
+source $HOME/.vim/config/appearance.vim
+source $HOME/.vim/config/editing.vim
+source $HOME/.vim/config/mappings.vim
 
-" Vim options
-source $HOME/.vim/appearance.vim
-
-" Editing behavior
-source $HOME/.vim/editing.vim
-
-" Key mappings
-source $HOME/.vim/mappings.vim
